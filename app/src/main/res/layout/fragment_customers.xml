@@ -1,0 +1,21 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.haishan.saleoa.CustomersFragment"
+    android:orientation="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+    <com.haishan.saleoa.PagerSlidingTabStrip
+        android:id="@+id/customers_top"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"></com.haishan.saleoa.PagerSlidingTabStrip>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/customers_pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/customers_top"
+        ></android.support.v4.view.ViewPager>
+
+</LinearLayout>

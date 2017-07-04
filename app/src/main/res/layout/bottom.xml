@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="64.5dp"
+    android:layout_gravity="bottom"
+    android:gravity="center"
+    android:background="#d5c59f">
+    <!--android:ayout_alignParentBottom="true"-->
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:id="@+id/main_goods"
+        android:gravity="center"
+        android:orientation="vertical">
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/main_goods_img"
+            android:clickable="false"
+            android:src="@drawable/huopin"
+            android:background="#d5c59f"
+          />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:text="@string/main_goods"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:id="@+id/main_orders"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="#d5c59f">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/main_orders_img"
+            android:clickable="false"
+            android:src="@drawable/dingdan"
+            android:background="#d5c59f"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:text="@string/main_orders"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:id="@+id/main_customers"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="#d5c59f">
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/main_customers_img"
+            android:clickable="false"
+            android:src="@drawable/kehu"
+            android:background="#d5c59f"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:text="@string/main_customers"/>
+    </LinearLayout>
+
+
+</LinearLayout>

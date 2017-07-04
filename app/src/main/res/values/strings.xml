@@ -1,4 +1,20 @@
 <resources>
-    <string name="app_name">SaleOA</string>
+    <string name="app_name">食品出货系统</string>
+    <!--登录 -->
     <string name="action_settings">Settings</string>
+    <string name="login_id">用户ID</string>
+    <string name="login_password">密码</string>
+    <string name="login_remember">记住我</string>
+    <string name="login_gaoji">高级</string>
+    <string name="login_url">服务器地址</string>
+    <string name="login_loginbutton">登录</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--主界面-->
+    <string name="main_goods">货品管理</string>
+    <string name="main_orders">订单管理</string>
+    <string name="main_customers">客户管理</string>
+    <string name="search">搜索</string>
+
 </resources>
