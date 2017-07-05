@@ -28,7 +28,7 @@ public class postService {
             conn.setConnectTimeout(6000);
             conn.setRequestMethod("POST");
             DataOutputStream out = new DataOutputStream(conn.getOutputStream());
-            out.writeBytes(params);
+            out.write(params.getBytes());
             out.flush();
             out.close();
             InputStream in = conn.getInputStream();

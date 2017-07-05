@@ -4,22 +4,16 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-
 import com.haishan.saleoa.Adapter.GoodAdapter;
 import com.haishan.saleoa.DetailedActivity;
 import com.haishan.saleoa.R;
 import com.haishan.saleoa.Tools.Json2List;
-
-import com.haishan.saleoa.domain.Good;
 import com.haishan.saleoa.service.ResService;
-
 import java.io.Serializable;
 import java.lang.reflect.Field;
-import java.lang.reflect.Member;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -88,11 +82,6 @@ public class GetDataTask<T> extends AsyncTask<String, Integer, String> {
         });
 
     }
-
-
-
-
-
 
 
      /**

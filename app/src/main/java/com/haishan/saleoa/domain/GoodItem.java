@@ -19,8 +19,8 @@ public class GoodItem {
 	public void setAmount(int amount) {
 		this.amount = amount;
 	}
-	
-	//���췽��
+
+	//构造方法
 	public GoodItem(Good good, int amount){
 		this.good = good;
 		this.amount = amount; 

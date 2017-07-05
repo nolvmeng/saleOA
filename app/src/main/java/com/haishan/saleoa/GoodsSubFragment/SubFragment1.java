@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.haishan.saleoa.DetailedActivity;
 import com.haishan.saleoa.R;
 import com.haishan.saleoa.RefreshableView;
+import com.haishan.saleoa.config.ipconfig;
 import com.haishan.saleoa.domain.Good;
 import com.haishan.saleoa.tasks.GetDataTask;
 
@@ -56,13 +57,13 @@ public class SubFragment1 extends Fragment {
                 }
                 refreshableView.finishRefreshing();
             }
-        }, 0);
+        }, 0);//int参数是记录刷新时间的标志，其它fragment使用时修改值
         return view;
     }
       /**
        * 更新数据**/
     private void updata(){
-        String url =  "http://10.0.2.10:8080/SaleForAD/servlet/GoodServlet";
+        String url = ipconfig.IP_url + "/SaleForAD/servlet/GoodServlet";
         String param =  "method=AllGoods&category=all&pageNO=1";
 
         Class<Good> clazz = Good.class;
