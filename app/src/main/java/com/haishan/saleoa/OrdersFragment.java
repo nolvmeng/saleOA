@@ -70,7 +70,7 @@ public class OrdersFragment extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         // TODO Auto-generated method stub
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_login, menu);
+        inflater.inflate(R.menu.oders_menu, menu);
 
     }
     @Override
@@ -81,7 +81,7 @@ public class OrdersFragment extends Fragment {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.shopcar) {
             return true;
         }
         return super.onOptionsItemSelected(item);

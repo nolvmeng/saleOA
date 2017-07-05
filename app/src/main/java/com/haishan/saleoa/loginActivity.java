@@ -11,6 +11,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 
+import com.haishan.saleoa.domain.Good;
 import com.haishan.saleoa.tasks.GetDataTask;
 import com.haishan.saleoa.tasks.LoginTask;
 
@@ -70,8 +71,12 @@ public class loginActivity extends AppCompatActivity {
                     password=null;
                     rememberMe(id,password);}
                 System.out.println(checkFlag);
-                GetDataTask getDataTask = new GetDataTask(loginActivity.this);
-                getDataTask.execute();
+                String url =  "http://10.0.2.12:8080/SaleForAD/servlet/GoodServlet";
+                String param =  "method=AllGoods&category=meat&pageNO=1";
+
+                /*    Class<Good> clazz = Good.class;
+                    GetDataTask<Good> getDataTask = new GetDataTask (loginActivity.this, clazz);
+                    getDataTask.execute(url, param);*/
 
             }
         });

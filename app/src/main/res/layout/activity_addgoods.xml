@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_detailed"
+    android:id="@+id/activity_addgoods"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
-    tools:context="com.haishan.saleoa.DetailedActivity">
+    tools:context="com.haishan.saleoa.GoodsSubFragment.AddgoodsActivity"
+    android:orientation="vertical">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/goodsDetailedtitle"
         android:textSize="35dp"
-        android:text="@string/goodsdetailed_title"/>
+        android:text="@string/addgoods_title"/>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,14 +24,16 @@
             android:textSize="20dp"
             android:layout_margin="15dp"
             android:text="@string/goods_id"/>
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/id_detailed"
             android:textSize="20dp"
+            android:ems="10"
             android:layout_gravity="center"
             />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -46,11 +45,12 @@
             android:textSize="20dp"
             android:layout_margin="15dp"
             android:text="@string/goods_name"/>
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/name_detailed"
             android:textSize="20dp"
+            android:ems="10"
             android:layout_gravity="center"/>
     </LinearLayout>
     <LinearLayout
@@ -64,11 +64,12 @@
             android:textSize="20dp"
             android:layout_margin="15dp"
             android:text="@string/goods_reserve"/>
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/reserve_detailed"
             android:textSize="20dp"
+            android:ems="10"
             android:layout_gravity="center"/>
     </LinearLayout>
     <LinearLayout
@@ -82,11 +83,12 @@
             android:textSize="20dp"
             android:layout_margin="15dp"
             android:text="@string/goods_price"/>
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/price_detailed"
             android:textSize="20dp"
+            android:ems="10"
             android:layout_gravity="center"/>
     </LinearLayout>
     <LinearLayout
@@ -100,11 +102,12 @@
             android:textSize="20dp"
             android:layout_margin="15dp"
             android:text="@string/gooods_date"/>
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/date_detailed"
             android:textSize="20dp"
+            android:ems="10"
             android:layout_gravity="center"/>
     </LinearLayout>
     <LinearLayout
@@ -118,11 +121,12 @@
             android:textSize="20dp"
             android:layout_margin="15dp"
             android:text="@string/goods_category"/>
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/category_detailed"
             android:textSize="20dp"
+            android:ems="8"
             android:layout_gravity="center"/>
     </LinearLayout>
     <LinearLayout
@@ -136,14 +140,9 @@
             android:background="@color/background_tab_pressed"
             android:id="@+id/goodsDetailed_sure"
             android:text="@string/goodsdetailed_sure"
-            android:layout_margin="15dp" />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/background_tab_pressed"
-            android:id="@+id/goodsDetailed_change"
-            android:text="@string/goodsdetailed_change"
-            android:layout_margin="15dp" />
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="90dp"
+            android:layout_marginRight="20dp"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -152,6 +151,5 @@
             android:text="@string/goodsdetailed_back"
             android:layout_margin="15dp" />
     </LinearLayout>
-
 
 </LinearLayout>

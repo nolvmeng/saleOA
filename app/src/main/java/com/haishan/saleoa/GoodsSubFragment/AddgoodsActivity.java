@@ -1,39 +1,22 @@
-package com.haishan.saleoa;
+package com.haishan.saleoa.GoodsSubFragment;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.haishan.saleoa.domain.Good;
+import com.haishan.saleoa.R;
 
-import java.util.HashMap;
-import java.util.Map;
-
-public class DetailedActivity extends AppCompatActivity {
+public class AddgoodsActivity extends AppCompatActivity {
     TextView id,name,reserve,price,date,category,id_detailed,name_detailed,reserve_detailed,price_detailed,date_detailed,category_detailed;
-    Button sure,change,back;
-
-
+    Button sure,back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detailed);
-
+        setContentView(R.layout.activity_addgoods);
         init();
         initEvents();
-        Intent intent = this.getIntent();
-        HashMap<String, Object> map =  (HashMap<String, Object>) intent.getSerializableExtra("good");
-     //   map =   intent.getSerializableExtra("good");
-
-        if (map==null) System.out.println("map为空");
-
-        name_detailed.setText(map.get("goodName").toString());
-        reserve_detailed.setText(map.get("reserve").toString());
-//        price_detailed.setText(good.getGoodPrice());
-
     }
 
     public void init(){
@@ -51,7 +34,6 @@ public class DetailedActivity extends AppCompatActivity {
         category_detailed=(TextView)findViewById(R.id.category_detailed);
 
         sure=(Button)findViewById(R.id.goodsDetailed_sure);
-        change=(Button)findViewById(R.id.goodsDetailed_change);
         back=(Button)findViewById(R.id.goodsDetailed_back);
     }
 

@@ -1,8 +1,10 @@
 package com.haishan.saleoa;
 
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -16,7 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.haishan.saleoa.GoodsSubFragment.AddGoodsFragment;
+import com.haishan.saleoa.GoodsSubFragment.AddgoodsActivity;
 import com.haishan.saleoa.GoodsSubFragment.MainGoodsFragment;
 import com.haishan.saleoa.GoodsSubFragment.OthersGoodsFragment;
 import com.haishan.saleoa.GoodsSubFragment.SubFragment1;
@@ -32,7 +34,6 @@ public class GoodsFragment extends Fragment {
     private SubFragment3 subFragment3;
     private MainGoodsFragment mainGoodsFragment;
     private OthersGoodsFragment othersGoodsFragment;
-    private AddGoodsFragment addGoodsFragment;
     /**
      * PagerSlidingTabStrip的实例
      */
@@ -59,6 +60,15 @@ public class GoodsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_goods,null);
         initView(view);
+        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getActivity(), AddgoodsActivity.class);
+                startActivity(intent);
+            }
+        });
+        System.out.println("创建货品页");
         return view;
     }
     @Override
@@ -127,7 +137,7 @@ public class GoodsFragment extends Fragment {
             // TODO Auto-generated constructor stub
         }
 
-        private final String[] titles = { "全部商品", "肉类", "蔬菜类" ,"主食","其它","添加商品"};
+        private final String[] titles = { "全部商品", "肉类", "蔬菜类" ,"主食","其它"};
 
         @Override
         public CharSequence getPageTitle(int position) {
@@ -173,15 +183,16 @@ public class GoodsFragment extends Fragment {
                         othersGoodsFragment = new OthersGoodsFragment();
                     }
                     return othersGoodsFragment;
-                case 5:
-                    if(null == addGoodsFragment){
-                        addGoodsFragment = new AddGoodsFragment();
-                    }
-                    return addGoodsFragment;
                 default:
                     return null;
             }
         }
 
+    }
+
+    @Override
+    public void onDestroyView() {
+        System.out.println("销毁货品页");
+        super.onDestroyView();
     }
 }

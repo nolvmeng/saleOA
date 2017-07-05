@@ -24,7 +24,9 @@
             android:name=".MainActivity"
             android:label=" "
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".DetailedActivity"></activity>
+        <activity android:name=".DetailedActivity" />
+        <activity android:name=".GoodsSubFragment.AddgoodsActivity" />
+        <activity android:name=".OrdersSubFragment.OrderDetailedActivity"></activity>
     </application>
 
 </manifest>

@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 import com.haishan.saleoa.DetailedActivity;
 import com.haishan.saleoa.R;
+import com.haishan.saleoa.domain.Good;
+import com.haishan.saleoa.tasks.GetDataTask;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,96 +41,21 @@ public class SubFragment3 extends Fragment {
         // Inflate the layout for this fragment
         View  view = inflater.inflate(R.layout.goods_subfm3,container, false);
         vegetables_list=(ListView)view.findViewById(R.id.vegetables_list);
-        vegetablesgoods=getData();
-        MyAdapter adapter=new MyAdapter(getActivity());
-        vegetables_list.setAdapter(adapter);
+
+
+        updata();//执行异步任务，更新货品展示列表
+
         return view;
     }
+    /**
+     * 更新数据**/
+    private void updata(){
+        String url =  "http://10.0.2.10:8080/SaleForAD/servlet/GoodServlet";
+        String param =  "method=AllGoods&category=vegetable ";
 
-    //列表名称
-    private List<Map<String,Object>> getData(){
-        List<Map<String,Object>> vegetableslist=new ArrayList<Map<String,Object>>();
-        Map<String,Object> goodmap=new HashMap<String, Object>();
-        goodmap.put("name_item","大白菜");
-        vegetableslist.add(goodmap);
-        goodmap=new HashMap<String, Object>();
-        goodmap.put("name_item","娃娃菜");
-        vegetableslist.add(goodmap);
-        goodmap=new HashMap<String, Object>();
-        goodmap.put("name_item","花菜");
-        vegetableslist.add(goodmap);
-        goodmap=new HashMap<String, Object>();
-        goodmap.put("name_item","西蓝花");
-        vegetableslist.add(goodmap);goodmap=new HashMap<String, Object>();
-        goodmap.put("name_item","芥蓝");
-        vegetableslist.add(goodmap);
-        goodmap=new HashMap<String, Object>();
-        goodmap.put("name_item","菜心");
-        vegetableslist.add(goodmap);
-        goodmap=new HashMap<String, Object>();
-        goodmap.put("name_item","藕尖");
-        vegetableslist.add(goodmap);
-
-
-
-        return vegetableslist;
+        Class<Good> clazz = Good.class;
+        GetDataTask<Good> getDataTask = new GetDataTask (getActivity(),clazz, this.vegetables_list);
+        getDataTask.execute(url, param);
     }
 
-    public final class ViewHolder{
-        public TextView name_item;
-
-    }
-    public class MyAdapter extends BaseAdapter {
-        private LayoutInflater mInflater;
-        public MyAdapter(Context context){
-            this.mInflater=LayoutInflater.from(context);
-        }
-        @Override
-        public int getCount() {
-            return vegetablesgoods.size();
-        }
-
-        @Override
-        public Object getItem(int i) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int i) {
-            return 0;
-        }
-
-        @Override
-        public View getView(final int position, View convertview, ViewGroup parentList) {
-            ViewHolder holder=null;
-            if (convertview==null){
-                holder=new ViewHolder();
-                convertview=mInflater.inflate(R.layout.goods_listview_item,null);
-                holder.name_item=(TextView)convertview.findViewById(R.id.name_item);
-
-                convertview.setTag(holder);
-            }else {
-                holder=(ViewHolder)convertview.getTag();
-            }
-            holder.name_item.setText((String)vegetablesgoods.get(position).get("name_item"));
-
-            vegetables_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                    showDetailed(position);
-                }
-            });
-            return convertview;
-        }
-    }
-    public void showDetailed(int position){
-        Bundle bundle=new Bundle();
-        bundle.putString("item",vegetablesgoods.get(position).get("name_item").toString());
-        Intent intent=new Intent(getActivity(), DetailedActivity.class);
-        intent.putExtras(bundle);
-        startActivity(intent);
-        getActivity().overridePendingTransition(R.anim.fade,R.anim.hold);
-
-
-    }
 }
