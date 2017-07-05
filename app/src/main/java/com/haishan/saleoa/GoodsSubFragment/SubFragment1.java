@@ -48,8 +48,8 @@ public class SubFragment1 extends Fragment {
         List<Map<String,Object>> goodlist=new ArrayList<Map<String,Object>>();
         Map<String,Object> goodmap=new HashMap<String, Object>();
         goodmap.put("name_item","猪肉大白菜");
-
-
+        goodmap.put("text1_item","1001110");
+        goodmap.put("text2_item","6");
         goodlist.add(goodmap);
         goodmap=new HashMap<String, Object>();
         goodmap.put("name_item","牛肉火锅");
@@ -93,6 +93,10 @@ public class SubFragment1 extends Fragment {
 
     public final class ViewHolder{
         public TextView name_item;
+        public TextView text1_item;
+        public TextView text2_item;
+        public TextView text3_item;
+        public TextView text4_item;
 
     }
     public class MyAdapter extends BaseAdapter{
@@ -120,14 +124,19 @@ public class SubFragment1 extends Fragment {
             ViewHolder holder=null;
             if (convertview==null){
                 holder=new ViewHolder();
-                convertview=mInflater.inflate(R.layout.listview_item,null);
+                convertview=mInflater.inflate(R.layout.goods_listview_item,null);
                 holder.name_item=(TextView)convertview.findViewById(R.id.name_item);
+                holder.text1_item=(TextView)convertview.findViewById(R.id.text1_item);
+                holder.text2_item=(TextView)convertview.findViewById(R.id.text_2_item);
+
 
                 convertview.setTag(holder);
             }else {
                 holder=(ViewHolder)convertview.getTag();
             }
             holder.name_item.setText((String)Allgoods.get(position).get("name_item"));
+            holder.text1_item.setText((String)Allgoods.get(position).get("text1_item"));
+            holder.text2_item.setText((String)Allgoods.get(position).get("text2_item"));
 
             goods_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
@@ -140,7 +149,9 @@ public class SubFragment1 extends Fragment {
     }
         public void showDetailed(int position){
             Bundle bundle=new Bundle();
-            bundle.putString("item",Allgoods.get(position).get("name_item").toString());
+            bundle.putString("name",Allgoods.get(position).get("name_item").toString());
+            bundle.putString("reserve",Allgoods.get(position).get("text1_item").toString());
+            bundle.putString("price",Allgoods.get(position).get("text2_item").toString());
             Intent intent=new Intent(getActivity(), DetailedActivity.class);
            intent.putExtras(bundle);
            startActivity(intent);

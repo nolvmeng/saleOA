@@ -1,4 +1,4 @@
-package com.haishan.saleoa.GoodsSubFragment;
+package com.haishan.saleoa.OrdersSubFragment;
 
 
 import android.content.Context;
@@ -24,11 +24,11 @@ import java.util.Map;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SubFragment3 extends Fragment {
-    private ListView vegetables_list;
-    private List<Map<String,Object>> vegetablesgoods;
+public class OrdersviewFragment extends Fragment {
+    private ListView orders_list;
+    private List<Map<String, Object>> ALLOrders;
 
-    public SubFragment3() {
+    public OrdersviewFragment() {
         // Required empty public constructor
     }
 
@@ -36,46 +36,30 @@ public class SubFragment3 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View  view = inflater.inflate(R.layout.goods_subfm3,container, false);
-        vegetables_list=(ListView)view.findViewById(R.id.vegetables_list);
-        vegetablesgoods=getData();
-        MyAdapter adapter=new MyAdapter(getActivity());
-        vegetables_list.setAdapter(adapter);
+        View view = inflater.inflate(R.layout.orders_subfm1, container, false);
+        orders_list = (ListView) view.findViewById(R.id.orders_list);
+        ALLOrders = getData();
+        MyAdapter adapter = new MyAdapter(getActivity());
+        orders_list.setAdapter(adapter);
         return view;
     }
 
     //列表名称
-    private List<Map<String,Object>> getData(){
-        List<Map<String,Object>> vegetableslist=new ArrayList<Map<String,Object>>();
-        Map<String,Object> goodmap=new HashMap<String, Object>();
-        goodmap.put("name_item","大白菜");
-        vegetableslist.add(goodmap);
-        goodmap=new HashMap<String, Object>();
-        goodmap.put("name_item","娃娃菜");
-        vegetableslist.add(goodmap);
-        goodmap=new HashMap<String, Object>();
-        goodmap.put("name_item","花菜");
-        vegetableslist.add(goodmap);
-        goodmap=new HashMap<String, Object>();
-        goodmap.put("name_item","西蓝花");
-        vegetableslist.add(goodmap);goodmap=new HashMap<String, Object>();
-        goodmap.put("name_item","芥蓝");
-        vegetableslist.add(goodmap);
-        goodmap=new HashMap<String, Object>();
-        goodmap.put("name_item","菜心");
-        vegetableslist.add(goodmap);
-        goodmap=new HashMap<String, Object>();
-        goodmap.put("name_item","藕尖");
-        vegetableslist.add(goodmap);
+    private List<Map<String, Object>> getData() {
+        List<Map<String, Object>> orderlist = new ArrayList<Map<String, Object>>();
+        Map<String, Object> ordermap = new HashMap<String, Object>();
+        ordermap.put("name_item_detailed", "000001");
+        ordermap.put("text3_item", "周博");
+        ordermap.put("text4_item", "2017-7-4");
+        orderlist.add(ordermap);
 
-
-
-        return vegetableslist;
+        return orderlist;
     }
 
     public final class ViewHolder{
-        public TextView name_item;
+        public TextView name_item_detailed;
+        public TextView text3_item;
+        public TextView text4_item;
 
     }
     public class MyAdapter extends BaseAdapter {
@@ -85,7 +69,7 @@ public class SubFragment3 extends Fragment {
         }
         @Override
         public int getCount() {
-            return vegetablesgoods.size();
+            return ALLOrders.size();
         }
 
         @Override
@@ -103,16 +87,21 @@ public class SubFragment3 extends Fragment {
             ViewHolder holder=null;
             if (convertview==null){
                 holder=new ViewHolder();
-                convertview=mInflater.inflate(R.layout.goods_listview_item,null);
-                holder.name_item=(TextView)convertview.findViewById(R.id.name_item);
+                convertview=mInflater.inflate(R.layout.orders_listview_item,null);
+                holder.name_item_detailed=(TextView)convertview.findViewById(R.id.name_item_detailed);
+                holder.text3_item=(TextView)convertview.findViewById(R.id.text3_item);
+                holder.text4_item=(TextView)convertview.findViewById(R.id.text4_item);
+
 
                 convertview.setTag(holder);
             }else {
                 holder=(ViewHolder)convertview.getTag();
             }
-            holder.name_item.setText((String)vegetablesgoods.get(position).get("name_item"));
+            holder.name_item_detailed.setText((String)ALLOrders.get(position).get("name_item_detailed"));
+            holder.text3_item.setText((String)ALLOrders.get(position).get("text3_item"));
+            holder.text4_item.setText((String)ALLOrders.get(position).get("text4_item"));
 
-            vegetables_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            orders_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                     showDetailed(position);
@@ -123,7 +112,9 @@ public class SubFragment3 extends Fragment {
     }
     public void showDetailed(int position){
         Bundle bundle=new Bundle();
-        bundle.putString("item",vegetablesgoods.get(position).get("name_item").toString());
+        bundle.putString("name",ALLOrders.get(position).get("name_item_detailed").toString());
+        bundle.putString("reserve",ALLOrders.get(position).get("text3_item").toString());
+        bundle.putString("price",ALLOrders.get(position).get("text4_item").toString());
         Intent intent=new Intent(getActivity(), DetailedActivity.class);
         intent.putExtras(bundle);
         startActivity(intent);

@@ -17,4 +17,15 @@
     <string name="main_customers">客户管理</string>
     <string name="search">搜索</string>
 
+    <string name="goodsdetailed_title">食品详情</string>
+    <string name="goods_id">编号:</string>
+    <string name="goods_name">名称:</string>
+    <string name="goods_reserve">库存:</string>
+    <string name="goods_price">单价:</string>
+    <string name="gooods_date">日期:</string>
+    <string name="goods_category">所属种类:</string>
+    <string name="goodsdetailed_sure">确认</string>
+    <string name="goodsdetailed_change">修改</string>
+    <string name="goodsdetailed_back">返回</string>
+
 </resources>

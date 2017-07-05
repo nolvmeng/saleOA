@@ -45,10 +45,8 @@ public class Json2List {
             if(listObj == null || listObj.isEmpty()) return null;
             listT = new ArrayList<T>();
             //将Object的list中的的每一个元素中的json字符串转换为泛型代表的类型加入泛型代表的list集合返回
-            GsonBuilder gsonB_1 = new GsonBuilder();//使用GsonBuilder来创建Gson，可以设置时间转换格式。
-            gsonB_1.setDateFormat("yyyy-MM-dd");
             for (Object obj : listObj) {
-                T perT = gsonB_1.create().fromJson(obj.toString(), classT);
+                T perT = new GsonBuilder().create().fromJson(obj.toString(), classT);
                 listT.add(perT);
             }
         } catch (Exception e) {

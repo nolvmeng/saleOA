@@ -90,7 +90,7 @@ public class MainGoodsFragment extends Fragment {
             ViewHolder holder=null;
             if (convertview==null){
                 holder=new ViewHolder();
-                convertview=mInflater.inflate(R.layout.listview_item,null);
+                convertview=mInflater.inflate(R.layout.goods_listview_item,null);
                 holder.name_item=(TextView)convertview.findViewById(R.id.name_item);
 
                 convertview.setTag(holder);

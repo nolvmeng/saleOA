@@ -16,7 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.haishan.saleoa.OrdersSubFragment.Sub1Fragment;
+import com.haishan.saleoa.OrdersSubFragment.OrdersviewFragment;
 import com.haishan.saleoa.OrdersSubFragment.Sub3Fragment;
 import com.haishan.saleoa.OrdersSubFragment.Sun2Fragment;
 
@@ -24,7 +24,7 @@ import com.haishan.saleoa.OrdersSubFragment.Sun2Fragment;
  * A simple {@link Fragment} subclass.
  */
 public class OrdersFragment extends Fragment {
-    private Sub1Fragment subFragment1;
+    private OrdersviewFragment subFragment1;
     private Sun2Fragment subFragment2;
     private Sub3Fragment subFragment3;
     /**
@@ -137,7 +137,7 @@ public class OrdersFragment extends Fragment {
                 case 0:
 
                     if (null == subFragment1) {
-                        subFragment1 = new Sub1Fragment();
+                        subFragment1 = new OrdersviewFragment();
                     }
 
                     return subFragment1;
