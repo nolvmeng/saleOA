@@ -8,7 +8,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.haishan.saleoa.R;
-import com.haishan.saleoa.config.ipconfig;
+import com.haishan.saleoa.config.config;
 import com.haishan.saleoa.tasks.uploadTask;
 
 public class AddgoodsActivity extends AppCompatActivity {
@@ -25,12 +25,9 @@ public class AddgoodsActivity extends AppCompatActivity {
 
     }
 
-
-
-
     //添加货品方法
     private void  addGood(){
-        String url = ipconfig.IP_url + "/SaleForAD/servlet/GoodServlet";
+        String url = config.IP_url + "/SaleForAD/servlet/GoodServlet";
        // String param = "method=addGood&slCategory=meat&goodName="+"可乐"+"&goodPrice=18&goodNum=10";
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("method=addGood&slCategory=");
@@ -49,6 +46,7 @@ public class AddgoodsActivity extends AppCompatActivity {
 
 
     }
+
 
 
 

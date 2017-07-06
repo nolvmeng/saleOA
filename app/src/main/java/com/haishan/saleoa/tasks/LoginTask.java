@@ -6,12 +6,9 @@ import android.content.Intent;
 import android.os.AsyncTask;
 
 import com.haishan.saleoa.MainActivity;
-import com.haishan.saleoa.config.ipconfig;
+import com.haishan.saleoa.config.config;
 import com.haishan.saleoa.loginActivity;
 import com.haishan.saleoa.service.postService;
-
-
-import java.util.Map;
 
 
 /**
@@ -30,7 +27,7 @@ public class LoginTask extends AsyncTask<String, Integer, String> {
       //  String param = "method=login" + "&id=" + params[0] + "&password=" + params[1];
        //null;
         String param = "method=login" + "&id=" + params[0] + "&password=" + params[1];
-        return    postService.sendPost(ipconfig.IP_url+"/SaleForAD/servlet/UserServlet", param);
+        return    postService.sendPost(config.IP_url+"/SaleForAD/servlet/UserServlet", param);
     }
 
 
@@ -39,6 +36,7 @@ public class LoginTask extends AsyncTask<String, Integer, String> {
       //  Toast.makeText(this.context, s, Toast.LENGTH_LONG).show();
         if(("success").equals(s)) {
             loginActivity.checkFlag = "success";
+
             Intent intent = new Intent(this.context, MainActivity.class);
             this.context.startActivity(intent);
             ((Activity) context).finish();

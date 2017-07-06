@@ -15,11 +15,18 @@ import android.widget.TextView;
 
 import com.haishan.saleoa.DetailedActivity;
 import com.haishan.saleoa.R;
+import com.haishan.saleoa.config.config;
+import com.haishan.saleoa.domain.Good;
+import com.haishan.saleoa.domain.GoodItem;
+import com.haishan.saleoa.domain.OrderItem;
+import com.haishan.saleoa.tasks.GetDataTask;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static com.haishan.saleoa.config.config.user_Id;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -38,88 +45,21 @@ public class OrdersviewFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.orders_subfm1, container, false);
         orders_list = (ListView) view.findViewById(R.id.orders_list);
-        ALLOrders = getData();
-        MyAdapter adapter = new MyAdapter(getActivity());
-        orders_list.setAdapter(adapter);
+
+        updata();
         return view;
     }
+    //更新数据方法
+    private void updata(){
 
-    //列表名称
-    private List<Map<String, Object>> getData() {
-        List<Map<String, Object>> orderlist = new ArrayList<Map<String, Object>>();
-        Map<String, Object> ordermap = new HashMap<String, Object>();
-        ordermap.put("name_item_detailed", "000001");
-        ordermap.put("text3_item", "周博");
-        ordermap.put("text4_item", "2017-7-4");
-        orderlist.add(ordermap);
+        String url = config.IP_url + "/SaleForAD/servlet/OrderServlet";
+        String param =  "method=getOrder&userId="+user_Id;
 
-        return orderlist;
+        Class<OrderItem> clazz = OrderItem.class;
+        GetDataTask<Good> getDataTask = new GetDataTask (getActivity(),clazz, this.orders_list);
+        getDataTask.execute(url, param);
     }
 
-    public final class ViewHolder{
-        public TextView name_item_detailed;
-        public TextView text3_item;
-        public TextView text4_item;
-
-    }
-    public class MyAdapter extends BaseAdapter {
-        private LayoutInflater mInflater;
-        public MyAdapter(Context context){
-            this.mInflater=LayoutInflater.from(context);
-        }
-        @Override
-        public int getCount() {
-            return ALLOrders.size();
-        }
-
-        @Override
-        public Object getItem(int i) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int i) {
-            return 0;
-        }
-
-        @Override
-        public View getView(final int position, View convertview, ViewGroup parentList) {
-            ViewHolder holder=null;
-            if (convertview==null){
-                holder=new ViewHolder();
-                convertview=mInflater.inflate(R.layout.orders_listview_item,null);
-                holder.name_item_detailed=(TextView)convertview.findViewById(R.id.name_item_detailed);
-                holder.text3_item=(TextView)convertview.findViewById(R.id.text3_item);
-                holder.text4_item=(TextView)convertview.findViewById(R.id.text4_item);
 
 
-                convertview.setTag(holder);
-            }else {
-                holder=(ViewHolder)convertview.getTag();
-            }
-            holder.name_item_detailed.setText((String)ALLOrders.get(position).get("name_item_detailed"));
-            holder.text3_item.setText((String)ALLOrders.get(position).get("text3_item"));
-            holder.text4_item.setText((String)ALLOrders.get(position).get("text4_item"));
-
-            orders_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                    showDetailed(position);
-                }
-            });
-            return convertview;
-        }
-    }
-    public void showDetailed(int position){
-        Bundle bundle=new Bundle();
-        bundle.putString("name",ALLOrders.get(position).get("name_item_detailed").toString());
-        bundle.putString("reserve",ALLOrders.get(position).get("text3_item").toString());
-        bundle.putString("price",ALLOrders.get(position).get("text4_item").toString());
-        Intent intent=new Intent(getActivity(), DetailedActivity.class);
-        intent.putExtras(bundle);
-        startActivity(intent);
-        getActivity().overridePendingTransition(R.anim.fade,R.anim.hold);
-
-
-    }
 }

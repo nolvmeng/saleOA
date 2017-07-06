@@ -1,26 +1,18 @@
 package com.haishan.saleoa.GoodsSubFragment;
 
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
-import com.haishan.saleoa.DetailedActivity;
 import com.haishan.saleoa.R;
-import com.haishan.saleoa.config.ipconfig;
+import com.haishan.saleoa.config.config;
 import com.haishan.saleoa.domain.Good;
 import com.haishan.saleoa.tasks.GetDataTask;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -51,7 +43,7 @@ public class SubFragment3 extends Fragment {
     /**
      * 更新数据**/
     private void updata(){
-        String url =  ipconfig.IP_url + "/SaleForAD/servlet/GoodServlet";
+        String url =  config.IP_url + "/SaleForAD/servlet/GoodServlet";
         String param =  "method=AllGoods&category=vegetable ";
 
         Class<Good> clazz = Good.class;

@@ -13,7 +13,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/name_item"
             android:textSize="25sp"
-            android:textColor="@color/colorAccent"
+            android:textColor="#ecce63"
             android:text="订单号"/>
     <TextView
         android:layout_width="wrap_content"

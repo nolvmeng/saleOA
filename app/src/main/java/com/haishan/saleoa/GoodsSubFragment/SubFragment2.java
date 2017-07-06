@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.haishan.saleoa.R;
-import com.haishan.saleoa.config.ipconfig;
+import com.haishan.saleoa.config.config;
 import com.haishan.saleoa.domain.Good;
 import com.haishan.saleoa.tasks.GetDataTask;
 
@@ -41,7 +41,7 @@ public class SubFragment2 extends Fragment {
     /**
      * 更新数据**/
     private void updata(){
-        String url = ipconfig.IP_url + "/SaleForAD/servlet/GoodServlet";
+        String url = config.IP_url + "/SaleForAD/servlet/GoodServlet";
         String param =  "method=AllGoods&category=meat ";
 
         Class<Good> clazz = Good.class;

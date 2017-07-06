@@ -7,13 +7,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.haishan.saleoa.domain.Good;
+import com.haishan.saleoa.config.config;
+import com.haishan.saleoa.tasks.uploadTask;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class DetailedActivity extends AppCompatActivity {
-    TextView id,name,reserve,price,date,category,id_detailed,name_detailed,reserve_detailed,price_detailed,date_detailed,category_detailed;
+    TextView id,name,reserve,price,date,category, id_detailed,name_detailed,reserve_detailed,price_detailed,date_detailed,category_detailed;
+    /*EditText ;*/
     Button sure,change,back;
 
 
@@ -28,13 +29,46 @@ public class DetailedActivity extends AppCompatActivity {
         HashMap<String, Object> map =  (HashMap<String, Object>) intent.getSerializableExtra("good");
      //   map =   intent.getSerializableExtra("good");
 
-        if (map==null) System.out.println("map为空");
+        if (map == null) System.out.println("map为空");
 
         name_detailed.setText(map.get("goodName").toString());
         reserve_detailed.setText(map.get("reserve").toString());
 //        price_detailed.setText(good.getGoodPrice());
 
     }
+
+    //删除货品方法
+    private void  deleteGood(){
+         String url = config.IP_url + "/SaleForAD/servlet/GoodServlet";
+         String param = "method=delGood&id=" + id_detailed.getText().toString();
+
+         uploadTask task = new uploadTask(DetailedActivity.this);
+         task.execute(url, param);
+
+
+    }
+    //修改货品方法
+    private void  changeGood(){
+        String url = config.IP_url + "/SaleForAD/servlet/GoodServlet";
+        // String param = "method=addGood&slCategory=meat&goodName="+"可乐"+"&goodPrice=18&goodNum=10";
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("method=addGood&slCategory=");
+        stringBuilder.append(category_detailed.getText().toString());
+        stringBuilder.append("&goodName=");
+        stringBuilder.append(name_detailed.getText().toString());
+        stringBuilder.append("&goodPrice=");
+        stringBuilder.append(price_detailed.getText().toString());
+        stringBuilder.append("&goodNum=");
+        stringBuilder.append(reserve_detailed.getText().toString());
+        String params = stringBuilder.toString();
+        System.out.println(params);
+
+        uploadTask task = new uploadTask(DetailedActivity.this);
+        task.execute(url, params);
+
+
+    }
+
 
     public void init(){
         id=(TextView)findViewById(R.id.id);

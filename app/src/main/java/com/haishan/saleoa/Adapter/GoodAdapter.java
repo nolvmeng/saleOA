@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.haishan.saleoa.GoodsSubFragment.SubFragment1;
 import com.haishan.saleoa.R;
+import com.haishan.saleoa.domain.OrderItem;
 
 import java.util.List;
 import java.util.Map;
@@ -25,6 +26,8 @@ public class GoodAdapter extends BaseAdapter {
     private LayoutInflater mInflater;
     //private SubFragment1.ViewHolder holder;
     private List<Map<String, Object>> goodlist;
+
+
 
     public GoodAdapter(Context context, List<Map<String, Object>> goodlist) {
 
