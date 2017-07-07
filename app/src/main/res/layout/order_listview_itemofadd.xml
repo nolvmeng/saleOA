@@ -10,38 +10,53 @@
         android:id="@+id/name_item"
         android:textSize="25sp"
         android:textColor="@color/colorAccent" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="20dp">
+
+        <LinearLayout
+            android:layout_width="276dp"
+            android:layout_height="wrap_content">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/text1_item"
             android:textSize="20sp"
-            android:textColor="@color/colorPrimaryDark"/>
+            android:textColor="@color/colorPrimaryDark" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/text3_item"
             android:textSize="20sp"
             android:textColor="@color/colorPrimaryDark"
-            android:text="斤"/>
+            android:text="斤" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/text_2_item"
             android:textSize="20sp"
             android:textColor="@color/colorPrimary"
-            android:layout_marginLeft="30dp"/>
+            android:layout_marginLeft="50dp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/text4_item"
             android:textSize="20sp"
             android:textColor="@color/colorPrimary"
-            android:text="元/斤"/>
+            android:text="元/斤" />
+        </LinearLayout>
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/addOrders"
+            android:src="@drawable/addshopcar"
+            />
     </LinearLayout>
+
 </LinearLayout>

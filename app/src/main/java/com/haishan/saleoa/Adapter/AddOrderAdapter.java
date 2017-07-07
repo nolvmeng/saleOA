@@ -4,35 +4,31 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.haishan.saleoa.GoodsSubFragment.SubFragment1;
+import com.haishan.saleoa.OrdersSubFragment.ShopcarActivity;
 import com.haishan.saleoa.R;
-import com.haishan.saleoa.domain.OrderItem;
 
 import java.util.List;
 import java.util.Map;
 
-import static com.haishan.saleoa.R.id.goods_list;
-
 /**
- * Created by Heisan on 2017/7/5.
- * 货品列表适配器
+ * Created by Heisan on 2017/7/7.
  */
 
-public class GoodAdapter extends BaseAdapter {
+public class AddOrderAdapter extends BaseAdapter {
     private LayoutInflater mInflater;
     //private SubFragment1.ViewHolder holder;
     private List<Map<String, Object>> goodlist;
 
 
 
-    public GoodAdapter(Context context, List<Map<String, Object>> goodlist) {
+    public AddOrderAdapter(Context context, List<Map<String, Object>> goodlist) {
 
-            this.mInflater = LayoutInflater.from(context);
-            this.goodlist = goodlist;
+        this.mInflater = LayoutInflater.from(context);
+        this.goodlist = goodlist;
     }
 
 
@@ -56,10 +52,11 @@ public class GoodAdapter extends BaseAdapter {
         ViewHolder holder=null;
         if (convertview==null){
             holder=new ViewHolder();
-            convertview=mInflater.inflate(R.layout.goods_listview_item,null);
+            convertview=mInflater.inflate(R.layout.order_listview_itemofadd,null);
             holder.goodId=(TextView)convertview.findViewById(R.id.name_item);
             holder.reserve=(TextView)convertview.findViewById(R.id.text1_item);
             holder.goodPrice=(TextView)convertview.findViewById(R.id.text_2_item);
+            holder.imageView= (ImageView) convertview.findViewById(R.id.addOrders);
             convertview.setTag(holder);
         }else {
             holder=(ViewHolder)convertview.getTag();
@@ -67,6 +64,15 @@ public class GoodAdapter extends BaseAdapter {
         holder.goodId.setText((String)goodlist.get(position).get("goodName"));
         holder.reserve.setText((String)goodlist.get(position).get("reserve").toString());
         holder.goodPrice.setText((String)goodlist.get(position).get("goodPrice").toString());
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ShopcarActivity.gooodIdList.add(goodlist.get(position).get("goodId").toString());
+                ShopcarActivity.goodNameList.add(goodlist.get(position).get("goodName").toString());
+                ShopcarActivity.priceList.add((Float) goodlist.get(position).get("goodPrice"));
+               // System.out.println(ShopcarActivity.orderList.size());
+            }
+        });
 
         return convertview;
     }
@@ -74,6 +80,7 @@ public class GoodAdapter extends BaseAdapter {
         public TextView goodId;
         public TextView reserve;
         public TextView goodPrice;
+        public ImageView imageView;
 
 
 

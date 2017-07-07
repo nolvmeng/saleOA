@@ -76,9 +76,9 @@ public class OrderAdapter extends BaseAdapter {
         if (convertview==null){
             holder=new ViewHolder();
             convertview=mInflater.inflate(R.layout.orders_listview_item,null);
-            holder.name_item_detailed=(TextView)convertview.findViewById(R.id.name_item_detailed);
-            holder.text3_item=(TextView)convertview.findViewById(R.id.text3_item);
-            holder.text4_item=(TextView)convertview.findViewById(R.id.text4_item);
+            holder.name_item_detailed=(TextView)convertview.findViewById(R.id.orderId);
+            holder.text3_item=(TextView)convertview.findViewById(R.id.customer);
+            holder.text4_item=(TextView)convertview.findViewById(R.id.totalPrice);
 
 
             convertview.setTag(holder);

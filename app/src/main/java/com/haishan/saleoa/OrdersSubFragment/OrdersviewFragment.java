@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.haishan.saleoa.DetailedActivity;
 import com.haishan.saleoa.R;
+import com.haishan.saleoa.RefreshableView;
 import com.haishan.saleoa.config.config;
 import com.haishan.saleoa.domain.Good;
 import com.haishan.saleoa.domain.GoodItem;
@@ -34,6 +35,7 @@ import static com.haishan.saleoa.config.config.user_Id;
 public class OrdersviewFragment extends Fragment {
     private ListView orders_list;
     private List<Map<String, Object>> ALLOrders;
+    private RefreshableView refreshableView;
 
     public OrdersviewFragment() {
         // Required empty public constructor
@@ -47,6 +49,20 @@ public class OrdersviewFragment extends Fragment {
         orders_list = (ListView) view.findViewById(R.id.orders_list);
 
         updata();
+        refreshableView = (RefreshableView) view.findViewById(R.id.refreshable_view);
+
+        refreshableView.setOnRefreshListener(new RefreshableView.PullToRefreshListener() {
+            @Override
+            public void onRefresh() {
+                try {
+                    Thread.sleep(500);
+                    updata();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                refreshableView.finishRefreshing();
+            }
+        }, 5);//int参数是记录刷新时间的标志，其它fragment使用时修改值
         return view;
     }
     //更新数据方法

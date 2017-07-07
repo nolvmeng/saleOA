@@ -1,12 +1,14 @@
 package com.haishan.saleoa;
 
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.SearchView;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -16,8 +18,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.haishan.saleoa.OrdersSubFragment.OrderSearchActivity;
 import com.haishan.saleoa.OrdersSubFragment.OrdersviewFragment;
-import com.haishan.saleoa.OrdersSubFragment.Sub3Fragment;
+import com.haishan.saleoa.OrdersSubFragment.ShopcarActivity;
 import com.haishan.saleoa.OrdersSubFragment.Sun2Fragment;
 
 /**
@@ -26,7 +29,8 @@ import com.haishan.saleoa.OrdersSubFragment.Sun2Fragment;
 public class OrdersFragment extends Fragment {
     private OrdersviewFragment subFragment1;
     private Sun2Fragment subFragment2;
-    private Sub3Fragment subFragment3;
+
+    SearchView orderSearchview;
     /**
      * PagerSlidingTabStrip的实例
      */
@@ -71,7 +75,24 @@ public class OrdersFragment extends Fragment {
         // TODO Auto-generated method stub
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.oders_menu, menu);
+        orderSearchview=(SearchView)menu.findItem(R.id.search_oforder).getActionView();
+        orderSearchview.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                Intent intent=new Intent(getActivity(),OrderSearchActivity.class);
+                intent.putExtra("search",query);
+                startActivity(intent);
 
+
+
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -82,7 +103,11 @@ public class OrdersFragment extends Fragment {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.shopcar) {
+            System.out.println("buybuy");
+            Intent intent = new Intent(getActivity(), ShopcarActivity.class);
+            startActivity(intent);
             return true;
+
         }
         return super.onOptionsItemSelected(item);
     }
@@ -104,7 +129,7 @@ public class OrdersFragment extends Fragment {
                 TypedValue.COMPLEX_UNIT_DIP, 4, dm));// 4
         // 设置Tab标题文字的大小
         tabs.setTextSize((int) TypedValue.applyDimension(
-                TypedValue.COMPLEX_UNIT_SP, 12, dm)); // 16
+                TypedValue.COMPLEX_UNIT_SP, 15, dm)); // 16
         // 设置Tab Indicator的颜色
         tabs.setIndicatorColor(Color.parseColor("#45c01a"));// #45c01a
         // 取消点击Tab时的背景色
@@ -119,7 +144,7 @@ public class OrdersFragment extends Fragment {
             // TODO Auto-generated constructor stub
         }
 
-        private final String[] titles = { "查看订单", "添加订单", "订单详细" };
+        private final String[] titles = { "查看订单", "添加订单" };
 
         @Override
         public CharSequence getPageTitle(int position) {
@@ -149,13 +174,7 @@ public class OrdersFragment extends Fragment {
                     }
 
                     return subFragment2;
-                case 2:
 
-                    if (null == subFragment3) {
-                        subFragment3 = new Sub3Fragment();
-                    }
-
-                    return subFragment3;
                 default:
                     return null;
             }

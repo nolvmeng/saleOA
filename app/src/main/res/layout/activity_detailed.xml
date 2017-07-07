@@ -35,6 +35,7 @@
             android:layout_gravity="center"
             />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -46,13 +47,15 @@
             android:textSize="20dp"
             android:layout_margin="15dp"
             android:text="@string/goods_name"/>
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/name_detailed"
             android:textSize="20dp"
-            android:layout_gravity="center"/>
+            android:ems="10"
+            android:layout_gravity="center" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -64,13 +67,15 @@
             android:textSize="20dp"
             android:layout_margin="15dp"
             android:text="@string/goods_reserve"/>
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/reserve_detailed"
             android:textSize="20dp"
-            android:layout_gravity="center"/>
+            android:ems="10"
+            android:layout_gravity="center" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -82,13 +87,15 @@
             android:textSize="20dp"
             android:layout_margin="15dp"
             android:text="@string/goods_price"/>
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/price_detailed"
             android:textSize="20dp"
-            android:layout_gravity="center"/>
+            android:ems="10"
+            android:layout_gravity="center" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -118,31 +125,56 @@
             android:textSize="20dp"
             android:layout_margin="15dp"
             android:text="@string/goods_category"/>
-        <TextView
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/category_detailed_tsw"
+                android:textSize="20dp"
+                android:layout_margin="15dp"/>
+        <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/category_detailed"
             android:textSize="20dp"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+
+            />
+        </RelativeLayout>
     </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="5dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/background_tab_pressed"
+                android:id="@+id/goodsDetailed_change"
+                android:text="@string/goodsdetailed_change"
+                android:layout_margin="15dp" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/goodsDetailed_sure"
+                android:background="@color/background_tab_pressed"
+                android:layout_margin="15dp"
+                android:text="@string/goodsdetailed_sure"
+                android:visibility="invisible"/>
+        </RelativeLayout>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/background_tab_pressed"
-            android:id="@+id/goodsDetailed_sure"
-            android:text="@string/goodsdetailed_sure"
-            android:layout_margin="15dp" />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/background_tab_pressed"
-            android:id="@+id/goodsDetailed_change"
-            android:text="@string/goodsdetailed_change"
+            android:id="@+id/goodsDetailed_delete"
+            android:text="@string/goodsdetailed_delete"
             android:layout_margin="15dp" />
         <Button
             android:layout_width="wrap_content"

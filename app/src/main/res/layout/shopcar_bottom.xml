@@ -1,0 +1,64 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.haishan.saleoa.OrdersSubFragment.ShopcarFragment"
+    android:orientation="horizontal">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:id="@+id/shopcar_bottom_gong"
+        android:text="共"
+        android:textSize="15dp"
+        android:layout_marginTop="13dp"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:id="@+id/shopcar_bottom_totallist"
+        android:textSize="15dp"
+        android:text="0"
+        android:layout_marginTop="13dp"
+         />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:id="@+id/shopcar_bottom_kuan"
+        android:text="种,"
+        android:textSize="15dp"
+        android:layout_marginTop="13dp"/>
+<LinearLayout
+    android:layout_width="200dp"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/total_Price"
+        android:text="金额:"
+        android:textSize="15dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="13dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:id="@+id/totalPrice"
+        android:textSize="15dp"
+        />
+</LinearLayout>
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/shopcar_addorders"
+        android:background="#DC143C"
+       android:layout_gravity="right"
+        android:text="下单"/>
+
+</LinearLayout>

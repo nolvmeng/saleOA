@@ -20,27 +20,6 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/id"
-            android:textSize="20dp"
-            android:layout_margin="15dp"
-            android:text="@string/goods_id"/>
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/id_detailed"
-            android:textSize="20dp"
-            android:ems="10"
-            android:layout_gravity="center"
-            />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/name"
             android:textSize="20dp"
             android:layout_margin="15dp"
@@ -98,36 +77,17 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/date"
-            android:textSize="20dp"
-            android:layout_margin="15dp"
-            android:text="@string/gooods_date"/>
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/date_detailed"
-            android:textSize="20dp"
-            android:ems="10"
-            android:layout_gravity="center"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/category"
             android:textSize="20dp"
             android:layout_margin="15dp"
             android:text="@string/goods_category"/>
-        <EditText
+        <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/category_detailed"
             android:textSize="20dp"
-            android:ems="8"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            />
     </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"

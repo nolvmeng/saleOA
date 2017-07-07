@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.haishan.saleoa.R;
+import com.haishan.saleoa.RefreshableView;
 import com.haishan.saleoa.config.config;
 import com.haishan.saleoa.domain.Good;
 import com.haishan.saleoa.tasks.GetDataTask;
@@ -20,6 +21,7 @@ import com.haishan.saleoa.tasks.GetDataTask;
  */
 public class SubFragment2 extends Fragment {
     private ListView meat_list;
+    RefreshableView refreshableView;
     //private List<Map<String,Object>> meatgoods;
 
     public SubFragment2() {
@@ -35,7 +37,20 @@ public class SubFragment2 extends Fragment {
         meat_list=(ListView)view.findViewById(R.id.meat_list);
 
         updata();//执行异步任务，更新货品展示列表
+        refreshableView = (RefreshableView) view.findViewById(R.id.refreshable_view);
 
+        refreshableView.setOnRefreshListener(new RefreshableView.PullToRefreshListener() {
+            @Override
+            public void onRefresh() {
+                try {
+                    Thread.sleep(500);
+                    updata();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                refreshableView.finishRefreshing();
+            }
+        },1);//int参数是记录刷新时间的标志，其它fragment使用时修改值
         return view;
     }
     /**

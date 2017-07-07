@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="10dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,5 +43,41 @@
             android:textColor="@color/colorPrimary"
             android:text="元/斤"/>
 
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/shopcar_delete"
+            android:text="@string/goodsdetailed_delete"
+            android:background="#ffffff"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="100dp">
+        <Button
+            android:layout_width="35dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/shopcar_jian"
+            android:text="@string/shopcar_jian"
+            android:background="#ffffff"
+            />
+            <EditText
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/shopcar_number"
+                />
+            <Button
+                android:layout_width="35dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/shopcar_jia"
+                android:text="@string/shopcar_jia"
+                android:background="#ffffff"/>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

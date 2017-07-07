@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.SearchView;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -21,6 +22,7 @@ import android.view.ViewGroup;
 import com.haishan.saleoa.GoodsSubFragment.AddgoodsActivity;
 import com.haishan.saleoa.GoodsSubFragment.MainGoodsFragment;
 import com.haishan.saleoa.GoodsSubFragment.OthersGoodsFragment;
+import com.haishan.saleoa.GoodsSubFragment.SearchActivity;
 import com.haishan.saleoa.GoodsSubFragment.SubFragment1;
 import com.haishan.saleoa.GoodsSubFragment.SubFragment2;
 import com.haishan.saleoa.GoodsSubFragment.SubFragment3;
@@ -34,6 +36,7 @@ public class GoodsFragment extends Fragment {
     private SubFragment3 subFragment3;
     private MainGoodsFragment mainGoodsFragment;
     private OthersGoodsFragment othersGoodsFragment;
+    private SearchView searchView;
     /**
      * PagerSlidingTabStrip的实例
      */
@@ -52,6 +55,7 @@ public class GoodsFragment extends Fragment {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+
     }
 
     @Override
@@ -69,13 +73,34 @@ public class GoodsFragment extends Fragment {
             }
         });
         System.out.println("创建货品页");
+
+
         return view;
     }
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         // TODO Auto-generated method stub
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_login, menu);
+        searchView=(SearchView)menu.findItem(R.id.search_ofgood).getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                Intent intent=new Intent(getActivity(),SearchActivity.class);
+                intent.putExtra("search",query);
+                startActivity(intent);
+
+
+
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
 
     }
     @Override
@@ -195,4 +220,6 @@ public class GoodsFragment extends Fragment {
         System.out.println("销毁货品页");
         super.onDestroyView();
     }
+
+
 }

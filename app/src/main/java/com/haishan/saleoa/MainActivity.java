@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private void initEvents() {
-        //设置四个Tab的点击事件
+        //设置四三Tab的点击事件
         TabGoods.setOnClickListener(onClickListener);
         TabOrders.setOnClickListener(onClickListener);
         TabCustomers.setOnClickListener(onClickListener);

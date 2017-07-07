@@ -24,8 +24,7 @@ public class LoginTask extends AsyncTask<String, Integer, String> {
     }
     @Override
     protected String doInBackground(String[] params) {
-      //  String param = "method=login" + "&id=" + params[0] + "&password=" + params[1];
-       //null;
+
         String param = "method=login" + "&id=" + params[0] + "&password=" + params[1];
         return    postService.sendPost(config.IP_url+"/SaleForAD/servlet/UserServlet", param);
     }
@@ -33,10 +32,9 @@ public class LoginTask extends AsyncTask<String, Integer, String> {
 
     @Override
     protected void onPostExecute(String s) {
-      //  Toast.makeText(this.context, s, Toast.LENGTH_LONG).show();
+
         if(("success").equals(s)) {
             loginActivity.checkFlag = "success";
-
             Intent intent = new Intent(this.context, MainActivity.class);
             this.context.startActivity(intent);
             ((Activity) context).finish();

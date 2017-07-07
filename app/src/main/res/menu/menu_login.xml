@@ -8,7 +8,7 @@
         android:title="@string/action_settings"
         app:showAsAction="never" />
     <item
-        android:id="@+id/orders_search"
+        android:id="@+id/search_ofgood"
         android:title="@string/search"
         android:icon="@drawable/ic_search"
 
